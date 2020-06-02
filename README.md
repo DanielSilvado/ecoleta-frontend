@@ -110,7 +110,7 @@ Podemos considerar este projeto como sendo divido em três partes:
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/DanielSilvado/ecoleta-frontend
+$ git clone https://github.com/DanielSilvado/ecoleta-frontend.git
 
 # Vá para a pasta da aplicação Front End
 $ cd web
