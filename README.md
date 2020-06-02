@@ -100,17 +100,11 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## 🚀 Como rodar este projeto
 
 Podemos considerar este projeto como sendo divido em três partes:
-1. Back End (pasta server) 
-2. Front End (pasta web)
+1. <a href="https://github.com/DanielSilvado/ecoleta-backend" target="_blank">Back End</a> 
+2. <a href="https://github.com/DanielSilvado/ecoleta-frontend" target="_blank">Front End</a> 
 3. Mobile (Em breve)
 
 💡Tanto o Front End quanto o Mobile precisam que o Back End esteja sendo executado para funcionar.
-
-### Pré-requisitos
-
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js][nodejs]. 
-Além disto é bom ter um editor para trabalhar com o código como [VSCode][vscode]
 
 ### 🧭 Rodando a aplicação web (Front End)
 
