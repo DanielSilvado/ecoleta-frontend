@@ -33,7 +33,19 @@ const CreatePoint = () => {
   const [cities, setCities] = useState<string[]>([])
   const [selectedCity, setSelectedCity] = useState('0')
 
+
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0])
+
+  // method that returns the user's local position
+  
+  // const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0])
+  // useEffect(() => {
+  //   navigator.geolocation.getCurrentPosition(position => {
+  //     const { latitude, longitude } = position.coords
+
+  //     setInitialPosition([latitude, longitude])
+  //   })
+  // }, [])
 
   useEffect(() => {
     api.get('items').then(response => {
