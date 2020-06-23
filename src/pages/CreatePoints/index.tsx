@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ChangeEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
-import { LeafletMouseEvent, LeafletMouseEventHandlerFn } from 'leaflet'
+import { LeafletMouseEvent } from 'leaflet'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import axios from 'axios'
 
@@ -125,12 +125,12 @@ const CreatePoint = () => {
             <span>Selecione o endereço no mapa</span>
           </legend>
 
-          <Map center={selectedPosition} zoom={15} onClick={}>
+          <Map center={[-27.2092052, -49.6401092]} zoom={15} onClick={HandlerMapClick}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[-27.2092052, -49.6401092]} />
+            <Marker position={selectedPosition} />
           </Map>
 
           <div className="field-group">
