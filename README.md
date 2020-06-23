@@ -2,9 +2,7 @@
     <img alt="NextLevelWeek" title="#NextLevelWeek" src="./github-assets/banner.png" />
 </h1>
 
-<h4 align="center"> 
-	🚧 NextLevelWeek 1.0 🚀 em desenvolvimento... 🚧
-</h4>
+<h4 align="center">NextLevelWeek 1.0 🚀</h4>
 
 <p align="center">
 
