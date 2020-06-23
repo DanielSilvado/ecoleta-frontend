@@ -33,11 +33,18 @@ const CreatePoint = () => {
   const [cities, setCities] = useState<string[]>([])
   const [selectedCity, setSelectedCity] = useState('0')
 
-
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0])
 
+  const [selectedItems, setSelectedItems] = useState<number[]>([])
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    whatsapp: ''
+  })
+
   // method that returns the user's local position
-  
+
   // const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0])
   // useEffect(() => {
   //   navigator.geolocation.getCurrentPosition(position => {
@@ -80,11 +87,28 @@ const CreatePoint = () => {
     setSelectedCity(city)
   }
 
-  function HandlerMapClick(event: LeafletMouseEvent) {
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target
+
+    setFormData({ ...formData, [name]: value })
+  }
+
+  function handlerMapClick(event: LeafletMouseEvent) {
     setSelectedPosition([
       event.latlng.lat,
       event.latlng.lng
     ])
+  }
+
+  function handleSelectItem(id: number) {
+    const alreadySelected = selectedItems.findIndex(item => item === id)
+
+    if (alreadySelected >= 0) {
+      const filterItems = selectedItems.filter(item => item !== id)
+      setSelectedItems(filterItems)
+    } else {
+      setSelectedItems([...selectedItems, id])
+    }
   }
 
   return (
@@ -110,6 +134,7 @@ const CreatePoint = () => {
             <input type="text"
               name="name"
               id="name"
+              onChange={handleInputChange}
             />
           </div>
 
@@ -119,6 +144,7 @@ const CreatePoint = () => {
               <input type="email"
                 name="email"
                 id="email"
+                onChange={handleInputChange}
               />
             </div>
             <div className="field">
@@ -126,6 +152,7 @@ const CreatePoint = () => {
               <input type="text"
                 name="whatsapp"
                 id="whatsapp"
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -137,7 +164,7 @@ const CreatePoint = () => {
             <span>Selecione o endereço no mapa</span>
           </legend>
 
-          <Map center={[-27.2092052, -49.6401092]} zoom={15} onClick={HandlerMapClick}>
+          <Map center={[-27.2092052, -49.6401092]} zoom={15} onClick={handlerMapClick}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -175,7 +202,11 @@ const CreatePoint = () => {
 
           <ul className="items-grid">
             {items.map(item => (
-              <li key={item.id}>
+              <li
+                key={item.id}
+                onClick={() => handleSelectItem(item.id)}
+                className={selectedItems.includes(item.id) ? 'selected' : ''}
+              >
                 <img src={item.image_url} alt="Teste" />
                 <span>{item.title}</span>
               </li>
